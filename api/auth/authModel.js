@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const { dynamoDB } = require('../../config/awsConfig');
 const { QueryCommand, PutItemCommand, UpdateItemCommand } = require('@aws-sdk/client-dynamodb');
 const TABLE_NAME = process.env.DYNAMODB_TABLE_NAME;

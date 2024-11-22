@@ -1,3 +1,4 @@
+require("dotenv").config()
 const { sns } = require('../config/awsConfig');
 const { PublishCommand } = require('@aws-sdk/client-sns');
 

@@ -1,3 +1,4 @@
+require("dotenv").config() 
 const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
 const { SESClient } = require('@aws-sdk/client-ses');
 const { SNSClient } = require('@aws-sdk/client-sns');

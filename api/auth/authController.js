@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 const { dynamoDB } = require('../../config/awsConfig');
 const { UpdateItemCommand } = require('@aws-sdk/client-dynamodb');
 
@@ -28,7 +30,7 @@ exports.signup = async (req, res) => {
         res.status(200).json({ message: 'OTP sent' });
     } catch (error) {
         console.error('Error in signup:', error);
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: 'Server error',error:error.message });
     }
 };
 
@@ -74,7 +76,7 @@ exports.verifyOTP = async (req, res) => {
         res.status(200).json({ message: 'OTP verified', token });
     } catch (error) {
         console.error('Error in verifyOTP:', error);
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: 'Server error',error:error.message });
     }
 };
 
@@ -101,7 +103,7 @@ exports.createPassword = async (req, res) => {
         res.status(200).json({ message: 'Password created successfully' });
     } catch (error) {
         console.error('Error in createPassword:', error);
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: 'Server error' ,error:error.message});
     }
 };
 
@@ -121,6 +123,6 @@ exports.login = async (req, res) => {
         res.status(200).json({ message: 'Login successful', token });
     } catch (error) {
         console.error('Error in login:', error);
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: 'Server error',error:error.message });
     }
 };

@@ -1,3 +1,4 @@
+require("dotenv").config()
 const { ses } = require('../config/awsConfig');
 const { SendEmailCommand } = require('@aws-sdk/client-ses');
 
